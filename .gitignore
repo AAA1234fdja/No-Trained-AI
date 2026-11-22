@@ -1,0 +1,16 @@
+# Pesos del modelo (excluidos de Git)
+# model.safetensors: 801,224,536 bytes (~764 MB) — supera el límite de 100 MB por archivo de GitHub.
+# El archivo original vive en Google Drive, carpeta "AI experiment AI", file ID:
+#   1Lb_97PHGKeJ1HB6k9Umu0Kpl953fNTAT
+model.safetensors
+*.safetensors
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+venv/
+.DS_Store
+.ipynb_checkpoints
