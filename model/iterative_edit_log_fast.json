@@ -1,0 +1,586 @@
+{
+  "best_score": 35.4874755859375,
+  "total_iterations": 15,
+  "edit_log": [
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 2,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 2,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 2,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 2,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 2,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 0.0,
+      "new_value": 0.5,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 3,
+      "tensor": "lm_head.weight",
+      "token_id": 700,
+      "col": 2,
+      "old_value": 0.0,
+      "new_value": -0.30000001192092896,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 3,
+      "tensor": "lm_head.weight",
+      "token_id": 701,
+      "col": 2,
+      "old_value": 0.0,
+      "new_value": -0.30000001192092896,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 3,
+      "tensor": "lm_head.weight",
+      "token_id": 702,
+      "col": 2,
+      "old_value": 0.0,
+      "new_value": -0.30000001192092896,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 3,
+      "tensor": "lm_head.weight",
+      "token_id": 703,
+      "col": 2,
+      "old_value": 0.0,
+      "new_value": -0.30000001192092896,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 3,
+      "tensor": "lm_head.weight",
+      "token_id": 704,
+      "col": 2,
+      "old_value": 0.0,
+      "new_value": -0.30000001192092896,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 4,
+      "tensor": "lm_head.weight",
+      "token_id": 42,
+      "col": 0,
+      "old_value": 0.0,
+      "new_value": -1.0,
+      "delta": -1.0,
+      "description": "Space -1.0 col0"
+    },
+    {
+      "iteration": 5,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.95,
+      "description": "v_proj x0.95"
+    },
+    {
+      "iteration": 6,
+      "tensor": "model.layers.1.mlp.down_proj.weight",
+      "rows": [
+        0,
+        16
+      ],
+      "factor": 1.1,
+      "description": "MLP down_proj layer 1 x1.1"
+    },
+    {
+      "iteration": 6,
+      "tensor": "model.layers.6.mlp.down_proj.weight",
+      "rows": [
+        0,
+        16
+      ],
+      "factor": 1.1,
+      "description": "MLP down_proj layer 6 x1.1"
+    },
+    {
+      "iteration": 6,
+      "tensor": "model.layers.12.mlp.down_proj.weight",
+      "rows": [
+        0,
+        16
+      ],
+      "factor": 1.1,
+      "description": "MLP down_proj layer 12 x1.1"
+    },
+    {
+      "iteration": 7,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 0.4925537109375,
+      "new_value": 0.9925537109375,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 7,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 0.49951171875,
+      "new_value": 0.99951171875,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 7,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 0.49365234375,
+      "new_value": 0.99365234375,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 7,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 0.501708984375,
+      "new_value": 1.001708984375,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 7,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 0.4972991943359375,
+      "new_value": 0.9972991943359375,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 7,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 0.4940032958984375,
+      "new_value": 0.9940032958984375,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 8,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 0.4931640625,
+      "new_value": 0.9931640625,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 8,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 0.49951171875,
+      "new_value": 0.99951171875,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 8,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 0.4919891357421875,
+      "new_value": 0.9919891357421875,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 8,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 0.501861572265625,
+      "new_value": 1.001861572265625,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 8,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 0.5050048828125,
+      "new_value": 1.0050048828125,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 700,
+      "col": 2,
+      "old_value": -0.294342041015625,
+      "new_value": -0.594342052936554,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 701,
+      "col": 2,
+      "old_value": -0.30120849609375,
+      "new_value": -0.601208508014679,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 702,
+      "col": 2,
+      "old_value": -0.3062744140625,
+      "new_value": -0.606274425983429,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 703,
+      "col": 2,
+      "old_value": -0.2957611083984375,
+      "new_value": -0.5957611203193665,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 704,
+      "col": 2,
+      "old_value": -0.30804443359375,
+      "new_value": -0.608044445514679,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 42,
+      "col": 0,
+      "old_value": -0.9920654296875,
+      "new_value": -1.9920654296875,
+      "delta": -1.0,
+      "description": "Space -1.0 col0"
+    },
+    {
+      "iteration": 11,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.95,
+      "description": "v_proj x0.95"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.1.mlp.down_proj.weight",
+      "rows": [
+        0,
+        16
+      ],
+      "factor": 1.1,
+      "description": "MLP down_proj layer 1 x1.1"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.6.mlp.down_proj.weight",
+      "rows": [
+        0,
+        16
+      ],
+      "factor": 1.1,
+      "description": "MLP down_proj layer 6 x1.1"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.12.mlp.down_proj.weight",
+      "rows": [
+        0,
+        16
+      ],
+      "factor": 1.1,
+      "description": "MLP down_proj layer 12 x1.1"
+    },
+    {
+      "iteration": 13,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 0.985107421875,
+      "new_value": 1.485107421875,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 13,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 0.9990234375,
+      "new_value": 1.4990234375,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 13,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 0.9873046875,
+      "new_value": 1.4873046875,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 13,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 1.00341796875,
+      "new_value": 1.50341796875,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 13,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 0.994598388671875,
+      "new_value": 1.494598388671875,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 13,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 0.988006591796875,
+      "new_value": 1.488006591796875,
+      "delta": 0.5,
+      "description": "Python +0.5 col0"
+    },
+    {
+      "iteration": 14,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 0.986328125,
+      "new_value": 1.486328125,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 14,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 0.9990234375,
+      "new_value": 1.4990234375,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 14,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 0.983978271484375,
+      "new_value": 1.483978271484375,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 14,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 1.00372314453125,
+      "new_value": 1.50372314453125,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 14,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 1.010009765625,
+      "new_value": 1.510009765625,
+      "delta": 0.5,
+      "description": "Analysis +0.5 col1"
+    },
+    {
+      "iteration": 15,
+      "tensor": "lm_head.weight",
+      "token_id": 700,
+      "col": 2,
+      "old_value": -0.58868408203125,
+      "new_value": -0.888684093952179,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 15,
+      "tensor": "lm_head.weight",
+      "token_id": 701,
+      "col": 2,
+      "old_value": -0.6024169921875,
+      "new_value": -0.902417004108429,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 15,
+      "tensor": "lm_head.weight",
+      "token_id": 702,
+      "col": 2,
+      "old_value": -0.612548828125,
+      "new_value": -0.912548840045929,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 15,
+      "tensor": "lm_head.weight",
+      "token_id": 703,
+      "col": 2,
+      "old_value": -0.591522216796875,
+      "new_value": -0.891522228717804,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    },
+    {
+      "iteration": 15,
+      "tensor": "lm_head.weight",
+      "token_id": 704,
+      "col": 2,
+      "old_value": -0.6160888671875,
+      "new_value": -0.916088879108429,
+      "delta": -0.3,
+      "description": "Conv -0.3 col2"
+    }
+  ]
+}

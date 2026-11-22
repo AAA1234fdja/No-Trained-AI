@@ -271,3 +271,74 @@ Se necesita entrenamiento supervisado con datos reales de Python y análisis, o 
 | Resultado | Modelo válido pero sin competencia lingüística real |
 
 *Documento generado como parte del experimento AI 800M — No-Trained-AI*
+
+---
+
+## 11. Edición Iterativa de Pesos (Matrices Pequeñas + Evaluación Continua)
+
+### 11.1. Metodología
+
+Se aplicó edición iterativa con el siguiente ciclo:
+1. **Cambio pequeño**: modificar una matriz pequeña (ej. +0.5 en columna 0 de lm_head para 6 tokens de Python)
+2. **Evaluación basada en pesos**: calcular puntuación compuesta directamente desde los valores de los pesos (sin forward pass completo)
+3. **Mantener o revertir**: si el score mejora > 0.1, mantener; si no, revertir
+4. **Repetir**: 15 iteraciones con 6 estrategias rotativas
+
+### 11.2. Estrategias Aplicadas
+
+| Estrategia | Cambio | Efecto |
+|------------|--------|--------|
+| Python +0.5 | lm_head[token_id, 0] += 0.5 | 6 tokens de Python |
+| Analysis +0.5 | lm_head[token_id, 1] += 0.5 | 5 tokens de análisis |
+| Conv -0.3 | lm_head[token_id, 2] -= 0.3 | 5 tokens de conversación |
+| Space -1.0 | lm_head[42, 0] -= 1.0 | Token espacio bare |
+| Induction x0.95 | v_proj capa 0 filas 0-127 ×0.95 | Cabeza de inducción |
+| MLP Python x1.1 | down_proj capas 1,6,12 filas 0-15 ×1.1 | MLP de Python |
+
+### 11.3. Evolución del Score de Pesos
+
+| Iteración | Estrategia | Score | Δ | Acción |
+|-----------|------------|-------|---|--------|
+| 0 | Línea base | 10.0 | — | — |
+| 1 | Python +0.5 | 13.0 | +3.0 | ✓ Mantener |
+| 2 | Analysis +0.5 | 16.0 | +3.0 | ✓ Mantener |
+| 3 | Conv -0.3 | 17.2 | +1.2 | ✓ Mantener |
+| 4 | Space -1.0 | 19.2 | +2.0 | ✓ Mantener |
+| 5 | Induction x0.95 | 19.2 | 0.0 | ✗ Revertir |
+| 6 | MLP Python x1.1 | 19.2 | 0.0 | ✗ Revertir |
+| 7 | Python +0.5 | 22.1 | +3.0 | ✓ Mantener |
+| 8 | Analysis +0.5 | 25.1 | +3.0 | ✓ Mantener |
+| 9 | Conv -0.3 | 26.3 | +1.2 | ✓ Mantener |
+| 10 | Space -1.0 | 28.3 | +2.0 | ✓ Mantener |
+| 11 | Induction x0.95 | 28.3 | 0.0 | ✗ Revertir |
+| 12 | MLP Python x1.1 | 28.3 | 0.0 | ✗ Revertir |
+| 13 | Python +0.5 | 31.3 | +3.0 | ✓ Mantener |
+| 14 | Analysis +0.5 | 34.3 | +3.0 | ✓ Mantener |
+| 15 | Conv -0.3 | 35.5 | +1.2 | ✓ Mantener |
+
+**Score final: 35.5 (mejora de 25.5 puntos sobre la línea base)**
+
+### 11.4. Evaluación con Inferencia Real
+
+Después de la edición iterativa, se probaron 3 prompts clave:
+
+| Prompt | Texto Generado | Entropía | Evaluación |
+|--------|---------------|----------|------------|
+| `def ` | `startsprim Essentialdocdocum folder folder folder` | 9.00 | ✗ No es Python válido |
+| `for i in range(` | `��forforforforforfor` | 9.62 | ✗ Repetición de token |
+| `Complexity:` | `hypothEffectiComplexityComplexityComplexity...` | 9.31 | ✗ Repetición de token |
+
+### 11.5. Conclusión de la Edición Iterativa
+
+La edición iterativa de matrices pequeñas **mejora las métricas proxy de pesos** (score de 10→35.5) pero **no se traduce en generación de texto coherente**. Esto confirma que:
+
+1. Los valores de peso individuales no capturan relaciones semánticas entre tokens
+2. Sin entrenamiento con gradientes (backpropagation), el modelo no aprende patrones lingüísticos
+3. La repetición de tokens (`forforfor`, `ComplexityComplexity`) persiste
+4. Los caracteres raros (`��`) siguen apareciendo en la generación
+
+**Se requiere entrenamiento supervisado con datos reales para lograr competencia en Python, análisis y habla mínima.**
+
+---
+
+*Fin de la documentación del experimento AI 800M — No-Trained-AI*
