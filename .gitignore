@@ -1,18 +1,40 @@
-# Pesos del modelo (subidos en 10 partes por el límite de 100 MB/archivo de GitHub)
-# Reensamblar con: cat model.safetensors.part.* > model.safetensors
-# model.safetensors completo: NO se sube a Git (764 MB > 100 MB límite de archivo).
-# El archivo original vive en Google Drive, carpeta "AI experiment AI", file ID:
-#   1Lb_97PHGKeJ1HB6k9Umu0Kpl953fNTAT
-model.safetensors
-*.safetensors
-!model.safetensors.part.*
-
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-.env
-.venv/
+*.so
+.Python
 venv/
+venv*/.venv_ai/
+.env
+
+# Model binarios grandes (no guardar en git, usar .safetensors.part.* + reassemble.sh)
+model/*.safetensors
+!model/model.safetensors.part.*
+!model/reassemble.sh
+!model/config.json
+!model/tokenizer.json
+!model/tokenizer_config.json
+
+# Outputs de experimentos
+ai_experiment/
+*.safetensors.backup*
+*.edits.json
+*_log_*.json
+*_evaluation*.json
+*_steering.json
+*_anti_loop*.json
+*_idk50m*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
-.ipynb_checkpoints
+Thumbs.db
+
+# Logs
+*.log

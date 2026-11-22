@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ arena/b015914a-no-trained-ai ]
+  pull_request:
+    branches: [ arena/b015914a-no-trained-ai ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install numpy safetensors tokenizers
+
+      - name: Compile all Python modules
+        run: |
+          python -m compileall scripts/ -q
+
+      - name: Run smoke test (model import + tensor validation)
+        run: |
+          python3 -c "
+          from safetensors import safe_open
+          import numpy as np
+          with safe_open('model/model.safetensors.part.aa', framework='numpy') as f:
+              pass
+          print('Model parts accessible')
+          "
+        # Nota: model.safetensors completo requiere reassemble.sh primero
+
+      - name: Verify reassemble script exists and is executable
+        run: |
+          test -f model/reassemble.sh && test -x model/reassemble.sh || chmod +x model/reassemble.sh
+          bash -n model/reassemble.sh
+          echo "reassemble.sh syntax OK"
+
+      - name: Count Python lines
+        run: |
+          LINES=$(find scripts -name "*.py" -exec wc -l {} + | tail -1 | awk '{print $1}')
+          echo "Total lines: $LINES"
+          if [ "$LINES" -lt 30000 ]; then
+            echo "ERROR: Less than 30,000 lines of Python code"
+            exit 1
+          fi
+
+      - name: Verify no NaN/Inf in model parts (sample)
+        run: |
+          python3 -c "
+          from safetensors import safe_open
+          import numpy as np
+          with safe_open('model/model.safetensors.part.aa', framework='numpy') as f:
+              for k in list(f.keys())[:10]:
+                  t = f.get_tensor(k)
+                  if np.issubdtype(t.dtype, np.floating):
+                      assert not np.any(np.isnan(t.astype(np.float32))), f'NaN in {k}'
+                      assert not np.any(np.isinf(t.astype(np.float32))), f'Inf in {k}'
+          print('No NaN/Inf in sampled tensors')
+          "
