@@ -207,3 +207,67 @@ print(func.code)  # Siempre el mismo resultado
 ---
 
 *Documento generado automáticamente como parte del experimento AI 800M.*
+---
+
+## 9. Resultados de Evaluación del Modelo Editado (Sin Entrenamiento)
+
+### 9.1. Metodología
+
+Se editaron los pesos del modelo `model.safetensors` aplicando:
+- Reforzamiento de 45 tokens de Python (columna 0 de lm_head, valor +2.5)
+- Reforzamiento de 31 tokens de análisis (columna 1 de lm_head, valor +2.5)
+- Supresión de 31 tokens de conversación (columna 2 de lm_head, valor -3.0)
+- Supresión de token de espacio bare (42, -6.0)
+- Supresión de '?' (73, -4.0)
+- Supresión de EOS prematuro (1, -4.0)
+- Reducción de wv_blk/wo_blk en capa 0 (factor 0.5, anti-repetición)
+
+### 9.2. Resultados de Generación
+
+| Prompt | Texto Generado | Entropía | Evaluación |
+|--------|---------------|----------|------------|
+| `def ` | `ConneConnectioConnection None folderfolderAttributeErr...` | 3.25 | ✗ No es Python válido |
+| `for i in range(` | `� ConnectionAbortedError asyncBaseBaseExBaseExcept...` | 8.55 | ✗ No es Python válido |
+| `return ` | `ConneConnec NonegloglobFashiConnectionA Truereturn...` | 3.21 | ✗ No es Python válido |
+| `import ` | `Connimportimportimportimportimportimportimportimport` | 3.17 | ✗ Repetición de token |
+| `Complexity:` | `hypothChildProcAssertionErrorTrueAssertionErr...` | 6.74 | ✗ No es análisis válido |
+| `Analyze data:` | `Connec imp im if AttributeError ConnectionAbortedError...` | 7.42 | ✗ No es análisis válido |
+| `Step 1:` | `ChildProcesChildProcessErrStepStepStepStepStep...` | 7.21 | ✗ Repetición de token |
+| `Hello` | `ChildPr assBas 941 assert MappingViewConnectionAgl` | 0.15 | ✗ Texto sin sentido |
+| `Thank you` | `AssertionEr ConnectionAbortedError impor impoConnectionAborte...` | 4.07 | ✗ Mezcla de errores |
+| `alpha = 42 ; beta = 99 ; alpha =` | `AsserassertMappingViewBaseEx statvfs_resulChildProcessEr...` | 8.21 | ✗ No completa inducción |
+
+### 9.3. Conclusión de la Evaluación
+
+**La edición analítica pura de pesos .safetensors SIN ENTRENAMIENTO NO logra:**
+- ✅ Competencia en Python (generación de código ejecutable)
+- ✅ Competencia en análisis de datos
+- ✅ Habla mínima conversacional coherente
+- ✅ Inducción de patrones [A][B]...[A]→[B]
+
+**Limitaciones fundamentales:**
+1. Sin entrenamiento con gradientes, los pesos no capturan relaciones semánticas entre tokens
+2. La entropía sigue siendo alta (5-9 nats) en la mayoría de prompts, indicando falta de certeza
+3. Persiste la repetición de tokens completos (`importimportimport`, `StepStepStep`)
+4. Aparecen caracteres raros y errores de Python mezclados en la generación
+5. No se logra comprensión lingüística ni capacidad de razonamiento
+
+**Requerimiento para lograr el objetivo:**
+Se necesita entrenamiento supervisado con datos reales de Python y análisis, o fine-tuning con RLHF. La edición manual de pesos es útil para ajustes finos pero no para construir competencia desde cero.
+
+---
+
+## 10. Estado Final del Proyecto
+
+| Métrica | Valor |
+|---------|-------|
+| Rama | `arena/b015914a-no-trained-ai` |
+| Commit | `f5c8a0b` (más commit de evaluación) |
+| Módulos Python | 56 |
+| Líneas de código | 31,774 (requisito 30,000 ✅) |
+| Modelo | `model/model.safetensors` (800,260,608 params, INT8) |
+| Formato | .safetensors (dividido en 10 partes para GitHub) |
+| Entrenamiento | Ninguno (síntesis y edición analítica pura) |
+| Resultado | Modelo válido pero sin competencia lingüística real |
+
+*Documento generado como parte del experimento AI 800M — No-Trained-AI*

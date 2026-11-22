@@ -280,7 +280,7 @@ class MmapInt8LlamaModel:
         h_final = rms_norm(h[-1:, :], final_ln_w, self.eps)
 
         # --- Logits de salida ---
-        logits = self._linear_f32_chunked(h_final, "lm_head")[0]  # (vocab_size,)
+        logits = self._linear_f32(h_final, "lm_head")[0]  # (vocab_size,)
 
         return logits, new_cache, attn_metrics
 
