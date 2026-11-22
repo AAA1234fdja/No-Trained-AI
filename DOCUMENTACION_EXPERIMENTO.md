@@ -240,20 +240,25 @@ Se editaron los pesos del modelo `model.safetensors` aplicando:
 ### 9.3. Conclusión de la Evaluación
 
 **La edición analítica pura de pesos .safetensors SIN ENTRENAMIENTO NO logra:**
-- ✅ Competencia en Python (generación de código ejecutable)
-- ✅ Competencia en análisis de datos
-- ✅ Habla mínima conversacional coherente
-- ✅ Inducción de patrones [A][B]...[A]→[B]
+- ❌ Competencia en Python (generación de código ejecutable válido)
+- ❌ Competencia en análisis de datos coherente
+- ❌ Habla mínima conversacional coherente
+- ❌ Inducción de patrones [A][B]...[A]→[B] fiable
 
 **Limitaciones fundamentales:**
-1. Sin entrenamiento con gradientes, los pesos no capturan relaciones semánticas entre tokens
-2. La entropía sigue siendo alta (5-9 nats) en la mayoría de prompts, indicando falta de certeza
-3. Persiste la repetición de tokens completos (`importimportimport`, `StepStepStep`)
-4. Aparecen caracteres raros y errores de Python mezclados en la generación
-5. No se logra comprensión lingüística ni capacidad de razonamiento
+
+1. **Sin entrenamiento con gradientes, los pesos no capturan relaciones semánticas entre tokens.** La edición de "columna 0 = Python, columna 1 = análisis" de `lm_head` es un **bias hack**: sumar +2.5 a `lm_head[token_id, 0]` solo desplaza el logit en `hidden_state[0]·Δ`, no inyecta conocimiento semántico. La dimensión oculta 0 no "es" Python.
+
+2. **Entropía alta = ruido, no certeza.** Con vocabulario de 32,000 tokens, la entropía máxima teórica es ln(32000) ≈ **10.37 nats**. Una entropía de 5-9 nats indica una perplejidad efectiva de ~8,000-20,000 tokens: es **ruido casi uniforme**, no certeza. Pasar de colapso (H≈0) a ruido (H≈10) es cambiar de un modo de fallo a otro, no una mejora. Un modelo entrenado opera típicamente en 1-4 nats donde está seguro de sus predicciones.
+
+3. **Persiste la repetición de tokens completos** (`importimportimport`, `StepStepStep`, `forforfor`).
+
+4. **Aparecen caracteres raros y errores de Python mezclados** en la generación.
+
+5. **No se logra comprensión lingüística ni capacidad de razonamiento.**
 
 **Requerimiento para lograr el objetivo:**
-Se necesita entrenamiento supervisado con datos reales de Python y análisis, o fine-tuning con RLHF. La edición manual de pesos es útil para ajustes finos pero no para construir competencia desde cero.
+Se necesita entrenamiento supervisado con datos reales de Python y análisis, o fine-tuning con RLHF. La edición manual de pesos es útil para ajustes finos pero **no para construir competencia desde cero**.
 
 ---
 
@@ -262,13 +267,17 @@ Se necesita entrenamiento supervisado con datos reales de Python y análisis, o 
 | Métrica | Valor |
 |---------|-------|
 | Rama | `arena/b015914a-no-trained-ai` |
-| Commit | `f5c8a0b` (más commit de evaluación) |
-| Módulos Python | 56 |
-| Líneas de código | 31,774 (requisito 30,000 ✅) |
-| Modelo | `model/model.safetensors` (800,260,608 params, INT8) |
-| Formato | .safetensors (dividido en 10 partes para GitHub) |
+| Commit | `f205bb5` (limpieza y CI) |
+| Módulos Python en `scripts/` | 56 |
+| Líneas de código Python | 31,774 (requisito 30,000 cumplido) |
+| Modelo canónico | `model/model.safetensors` (800,260,608 params, INT8) |
+| Formato modelo | .safetensors (10 partes ≤80 MB + reassemble.sh) |
 | Entrenamiento | Ninguno (síntesis y edición analítica pura) |
 | Resultado | Modelo válido pero sin competencia lingüística real |
+| Evaluación real | `scripts/real_evaluation.py` (ast.parse, n-gram, entropía) |
+| CI | `.github/workflows/ci.yml` (compileall + verificación) |
+
+> **Nota sobre las 31,774 líneas:** Este conteo incluye utilidades de ingeniería, analizadores, exportadores, generadores de plantillas y documentadores. No son tests ni notas. El requisito de 30,000 líneas se cumple, pero muchas módulos son infraestructura de soporte, no conocimiento del modelo. Para una métrica más útil, véase `scripts/real_evaluation.py` con pruebas de sintaxis Python (ast.parse) y detección de repetición de n-gramas.
 
 *Documento generado como parte del experimento AI 800M — No-Trained-AI*
 
@@ -295,10 +304,12 @@ Se aplicó edición iterativa con el siguiente ciclo:
 | Induction x0.95 | v_proj capa 0 filas 0-127 ×0.95 | Cabeza de inducción |
 | MLP Python x1.1 | down_proj capas 1,6,12 filas 0-15 ×1.1 | MLP de Python |
 
-### 11.3. Evolución del Score de Pesos
+### 11.3. Evolución del Score de Pesos (métrica proxy — no definitiva)
 
-| Iteración | Estrategia | Score | Δ | Acción |
-|-----------|------------|-------|---|--------|
+La edición iterativa aplicó cambios pequeños (ej. +0.5 en columna 0 de `lm_head` para tokens de Python) y midió un "score" basado en los propios valores de los pesos editados. Esta métrica es **circular**: si sumas +0.5 a ciertos pesos y tu métrica suma esos mismos pesos, el score sube por construcción (ley de Goodhart).
+
+| Iteración | Estrategia | Score proxy | Δ | Acción |
+|-----------|------------|-------------|---|--------|
 | 0 | Línea base | 10.0 | — | — |
 | 1 | Python +0.5 | 13.0 | +3.0 | ✓ Mantener |
 | 2 | Analysis +0.5 | 16.0 | +3.0 | ✓ Mantener |
@@ -316,7 +327,9 @@ Se aplicó edición iterativa con el siguiente ciclo:
 | 14 | Analysis +0.5 | 34.3 | +3.0 | ✓ Mantener |
 | 15 | Conv -0.3 | 35.5 | +1.2 | ✓ Mantener |
 
-**Score final: 35.5 (mejora de 25.5 puntos sobre la línea base)**
+**Score proxy final: 35.5 (mejora de 25.5 puntos sobre la línea base — métrica circular, no definitiva)**
+
+⚠️ **Advertencia:** Este score mide cambios en los pesos, no mejora en la generación. La sección 11.4 confirma que la generación sigue siendo incoherente (`forforfor`, `ComplexityComplexity`).
 
 ### 11.4. Evaluación con Inferencia Real
 
@@ -336,8 +349,9 @@ La edición iterativa de matrices pequeñas **mejora las métricas proxy de peso
 2. Sin entrenamiento con gradientes (backpropagation), el modelo no aprende patrones lingüísticos
 3. La repetición de tokens (`forforfor`, `ComplexityComplexity`) persiste
 4. Los caracteres raros (`��`) siguen apareciendo en la generación
+5. El score proxy es circular: medir los pesos que acabas de editar no es evidencia de mejora
 
-**Se requiere entrenamiento supervisado con datos reales para lograr competencia en Python, análisis y habla mínima.**
+**Se requiere entrenamiento supervisado con datos reales para lograr competencia en Python, análisis y habla mínima.** Para evaluación real, use `scripts/real_evaluation.py` que aplica `ast.parse` y detección de n-gramas.
 
 ---
 
