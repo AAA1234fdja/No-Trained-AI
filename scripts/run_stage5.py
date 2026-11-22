@@ -161,12 +161,12 @@ def build_stage5(E: np.ndarray, groups: Dict[str, List[int]]):
             wv_blk = np.zeros((HD, D), dtype=np.float32)
             wq_blk[80:128, 0:48] = np.eye(48, dtype=np.float32) * 4.5
             wk_blk[80:128, 1280:1328] = np.eye(48, dtype=np.float32) * 4.5
-            wv_blk[0:HD, 0:HD] = np.eye(HD, dtype=np.float32) * 0.55
+            wv_blk[0:HD, 0:HD] = np.eye(HD, dtype=np.float32) * 0.06  # reducido de 0.12 para evitar repetición de palabras
             q_q[0:HD], s_q[0:HD] = sw.quantize_int8_per_row(wq_blk)
             q_k[0:HD], s_k[0:HD] = sw.quantize_int8_per_row(wk_blk)
             q_v[0:HD], s_v[0:HD] = sw.quantize_int8_per_row(wv_blk)
             wo_blk = np.zeros((HD, D), dtype=np.float32)
-            wo_blk[:, 0:HD] = np.eye(HD, dtype=np.float32) * 0.55
+            wo_blk[:, 0:HD] = np.eye(HD, dtype=np.float32) * 0.06  # reducido de 0.12 para evitar repetición de palabras
             q_o[1408:1536], s_o[1408:1536] = sw.quantize_int8_per_row(wo_blk)
             q_o[:1408, 0:HD] = 0
 
@@ -256,7 +256,7 @@ def build_stage5(E: np.ndarray, groups: Dict[str, List[int]]):
     lm_head[:, 1408:1536] = E[:, 0:128] * 0.42   # Clean Induction readout
     lm_head[:, 903:1031] = E[:, 0:128] * 0.20    # Topic keyword echo
 
-    sg = 0.35  # Balanced logit scale (~2.5-6.0) for healthy entropy H in [1.5, 4.5]
+    sg = 0.35  # Balanced logit scale for diversity while keeping Python/analysis signal
     for tid in groups["py_ident_good"]:
         lm_head[tid, sw.PY_EXP_IDENT] += 3.5 * sg
         lm_head[tid, sw.PY_MODE] += 0.8 * sg
@@ -304,8 +304,10 @@ def build_stage5(E: np.ndarray, groups: Dict[str, List[int]]):
         lm_head[tid, sw.CV_MODE] += 0.4 * sg
         lm_head[tid, sw.LG_MODE] += 0.3 * sg
 
-    # Suppress bare space 'Ġ' (42)
-    lm_head[42, sw.F_BIAS] = -1.5
+    # Suppress bare space 'Ġ' (42) and common echo/loop tokens
+    lm_head[42, sw.F_BIAS] = -6.0     # bare space - prevent space loops after 'def '
+    lm_head[1, sw.F_BIAS] = -4.0      # <|eos|> - prevent premature stop
+    lm_head[73, sw.F_BIAS] = -4.0     # '?' - prevent question-loop
 
     q_lm, s_lm = sw.quantize_int8_per_row(lm_head)
     emit_tensor(q_lm, "I8")
