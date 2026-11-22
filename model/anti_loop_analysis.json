@@ -1,0 +1,906 @@
+{
+  "best_score": 105.00030063944024,
+  "total_iterations": 12,
+  "edit_log": [
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 1.4776611328125,
+      "new_value": 1.1776611804962158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 1.49853515625,
+      "new_value": 1.1985352039337158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 1.48095703125,
+      "new_value": 1.1809570789337158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 1.505126953125,
+      "new_value": 1.2051270008087158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 1.4918975830078125,
+      "new_value": 1.1918976306915283,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 1.4820098876953125,
+      "new_value": 1.1820099353790283,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 1.4794921875,
+      "new_value": 1.1794922351837158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 1.49853515625,
+      "new_value": 1.1985352039337158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 1.4759674072265625,
+      "new_value": 1.1759674549102783,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 1.505584716796875,
+      "new_value": 1.2055847644805908,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 1,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 1.5150146484375,
+      "new_value": 1.2150146961212158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 0"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.3.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 3"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.6.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 6"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.9.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 9"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.12.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 12"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.15.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 15"
+    },
+    {
+      "iteration": 2,
+      "tensor": "model.layers.18.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 18"
+    },
+    {
+      "iteration": 3,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        64
+      ],
+      "factor": 0.9,
+      "description": "Reduce induction head repetition"
+    },
+    {
+      "iteration": 3,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        64,
+        128
+      ],
+      "factor": 0.95,
+      "description": "Slightly reduce rest of induction head"
+    },
+    {
+      "iteration": 4,
+      "tensor": "lm_head.weight",
+      "token_id": 700,
+      "col": 2,
+      "old_value": -0.883026123046875,
+      "new_value": -1.283026099205017,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 4,
+      "tensor": "lm_head.weight",
+      "token_id": 701,
+      "col": 2,
+      "old_value": -0.90362548828125,
+      "new_value": -1.303625464439392,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 4,
+      "tensor": "lm_head.weight",
+      "token_id": 702,
+      "col": 2,
+      "old_value": -0.9188232421875,
+      "new_value": -1.318823218345642,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 4,
+      "tensor": "lm_head.weight",
+      "token_id": 703,
+      "col": 2,
+      "old_value": -0.8872833251953125,
+      "new_value": -1.2872833013534546,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 4,
+      "tensor": "lm_head.weight",
+      "token_id": 704,
+      "col": 2,
+      "old_value": -0.92413330078125,
+      "new_value": -1.324133276939392,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 1.4776611328125,
+      "new_value": 1.2776610851287842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 1.49853515625,
+      "new_value": 1.2985351085662842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 1.48095703125,
+      "new_value": 1.2809569835662842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 1.505126953125,
+      "new_value": 1.3051269054412842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 1.4918975830078125,
+      "new_value": 1.2918975353240967,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 1.4820098876953125,
+      "new_value": 1.2820098400115967,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 1.4794921875,
+      "new_value": 1.6794922351837158,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 1.49853515625,
+      "new_value": 1.6985352039337158,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 1.4759674072265625,
+      "new_value": 1.6759674549102783,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 1.505584716796875,
+      "new_value": 1.7055847644805908,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 5,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 1.5150146484375,
+      "new_value": 1.7150146961212158,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 1.4776611328125,
+      "new_value": 1.1776611804962158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 1.49853515625,
+      "new_value": 1.1985352039337158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 1.48095703125,
+      "new_value": 1.1809570789337158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 1.505126953125,
+      "new_value": 1.2051270008087158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 1.4918975830078125,
+      "new_value": 1.1918976306915283,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 1.4820098876953125,
+      "new_value": 1.1820099353790283,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 1.4794921875,
+      "new_value": 1.1794922351837158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 1.49853515625,
+      "new_value": 1.1985352039337158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 1.4759674072265625,
+      "new_value": 1.1759674549102783,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 1.505584716796875,
+      "new_value": 1.2055847644805908,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 6,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 1.5150146484375,
+      "new_value": 1.2150146961212158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 0"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.3.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 3"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.6.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 6"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.9.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 9"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.12.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 12"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.15.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 15"
+    },
+    {
+      "iteration": 7,
+      "tensor": "model.layers.18.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 18"
+    },
+    {
+      "iteration": 8,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        64
+      ],
+      "factor": 0.9,
+      "description": "Reduce induction head repetition"
+    },
+    {
+      "iteration": 8,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        64,
+        128
+      ],
+      "factor": 0.95,
+      "description": "Slightly reduce rest of induction head"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 700,
+      "col": 2,
+      "old_value": -1.275482177734375,
+      "new_value": -1.675482153892517,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 701,
+      "col": 2,
+      "old_value": -1.30523681640625,
+      "new_value": -1.705236792564392,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 702,
+      "col": 2,
+      "old_value": -1.3193359375,
+      "new_value": -1.719335913658142,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 703,
+      "col": 2,
+      "old_value": -1.2967987060546875,
+      "new_value": -1.6967986822128296,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 9,
+      "tensor": "lm_head.weight",
+      "token_id": 704,
+      "col": 2,
+      "old_value": -1.3201904296875,
+      "new_value": -1.720190405845642,
+      "delta": -0.4,
+      "description": "Suppress conversation tokens"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 1.4776611328125,
+      "new_value": 1.2776610851287842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 1.49853515625,
+      "new_value": 1.2985351085662842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 1.48095703125,
+      "new_value": 1.2809569835662842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 1.505126953125,
+      "new_value": 1.3051269054412842,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 1.4918975830078125,
+      "new_value": 1.2918975353240967,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 1.4820098876953125,
+      "new_value": 1.2820098400115967,
+      "delta": -0.2,
+      "description": "Balance Python vs Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 1.4794921875,
+      "new_value": 1.6794922351837158,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 1.49853515625,
+      "new_value": 1.6985352039337158,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 1.4759674072265625,
+      "new_value": 1.6759674549102783,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 1.505584716796875,
+      "new_value": 1.7055847644805908,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 10,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 1.5150146484375,
+      "new_value": 1.7150146961212158,
+      "delta": 0.2,
+      "description": "Boost Analysis"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 503,
+      "col": 0,
+      "old_value": 1.4776611328125,
+      "new_value": 1.1776611804962158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 504,
+      "col": 0,
+      "old_value": 1.49853515625,
+      "new_value": 1.1985352039337158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 505,
+      "col": 0,
+      "old_value": 1.48095703125,
+      "new_value": 1.1809570789337158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 506,
+      "col": 0,
+      "old_value": 1.505126953125,
+      "new_value": 1.2051270008087158,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 507,
+      "col": 0,
+      "old_value": 1.4918975830078125,
+      "new_value": 1.1918976306915283,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 508,
+      "col": 0,
+      "old_value": 1.4820098876953125,
+      "new_value": 1.1820099353790283,
+      "delta": -0.3,
+      "description": "Reduce Python repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 600,
+      "col": 1,
+      "old_value": 1.4794921875,
+      "new_value": 1.1794922351837158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 601,
+      "col": 1,
+      "old_value": 1.49853515625,
+      "new_value": 1.1985352039337158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 602,
+      "col": 1,
+      "old_value": 1.4759674072265625,
+      "new_value": 1.1759674549102783,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 603,
+      "col": 1,
+      "old_value": 1.505584716796875,
+      "new_value": 1.2055847644805908,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 11,
+      "tensor": "lm_head.weight",
+      "token_id": 604,
+      "col": 1,
+      "old_value": 1.5150146484375,
+      "new_value": 1.2150146961212158,
+      "delta": -0.3,
+      "description": "Reduce Analysis repetition risk"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.0.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 0"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.3.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 3"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.6.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 6"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.9.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 9"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.12.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 12"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.15.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 15"
+    },
+    {
+      "iteration": 12,
+      "tensor": "model.layers.18.self_attn.v_proj.weight",
+      "rows": [
+        0,
+        128
+      ],
+      "factor": 0.98,
+      "description": "Reduce v_proj layer 18"
+    }
+  ]
+}
