@@ -327,6 +327,8 @@ class MmapInt8LlamaModel:
         top_k: int = 40,
         top_p: float = 1.0,
         repetition_penalty: float = 1.0,
+        frequency_penalty: float = 0.0,
+        presence_penalty: float = 0.0,
         seed: Optional[int] = None,
         return_details: bool = False,
     ) -> dict:
@@ -341,6 +343,8 @@ class MmapInt8LlamaModel:
         top_k : limitar muestreo a los k más probables (0 = desactivado).
         top_p : muestreo nucleus (acumulado de probabilidad).
         repetition_penalty : penalizar tokens repetidos (>1.0 reduce repetición).
+        frequency_penalty : penalizar tokens proporcional a su frecuencia en la salida (>=0).
+        presence_penalty : penalizar tokens que han aparecido al menos una vez (>=0).
         seed : semilla para generador aleatorio (muestreo).
         return_details : si incluir top-5, entropía, etc.
 
@@ -380,6 +384,7 @@ class MmapInt8LlamaModel:
         generated_ids: List[int] = []
         cur_pos = prompt_tokens
         seen_tokens: set = set(prompt_ids)
+        token_counts: Dict[int, int] = {}
 
         for step in range(max_new_tokens):
             step_logits = logits.copy()
@@ -391,6 +396,18 @@ class MmapInt8LlamaModel:
                         step_logits[tid] /= repetition_penalty
                     else:
                         step_logits[tid] *= repetition_penalty
+
+            # Frequency penalty: penalizar proporcional a la frecuencia
+            if frequency_penalty != 0.0 and token_counts:
+                for tid, count in token_counts.items():
+                    if tid < len(step_logits):
+                        step_logits[tid] -= frequency_penalty * count
+
+            # Presence penalty: penalizar tokens que han aparecido al menos una vez
+            if presence_penalty != 0.0:
+                for tid in seen_tokens:
+                    if tid < len(step_logits):
+                        step_logits[tid] -= presence_penalty
 
             # Muestreo
             if temperature <= 0.0:
