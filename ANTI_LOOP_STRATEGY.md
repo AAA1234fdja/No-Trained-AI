@@ -185,3 +185,26 @@ result = engine.generate_anti_loop(
 ---
 
 *Documento generado como parte del experimento AI 800M — No-Trained-AI*
+---
+
+## 7. Limitaciones y Advertencias
+
+### 7.1. Probado en IDK50M, no en el modelo 800M completo
+
+Todas las configuraciones anti-loop se probaron en el modelo IDK50M (46.8M parámetros, INT8) usando `scripts/test_idk50m.py`. El modelo 800M completo requiere reensamblar 10 partes (~801 MB) y cada inferencia tarda ~27s, lo que hace las pruebas exhaustivas imprácticas. Los resultados en IDK50M son indicativos pero no garantizan el mismo comportamiento en el 800M.
+
+### 7.2. Anti-loop ≠ competencia lingüística
+
+Eliminar bucles de repetición (`forforfor`, `importimportimport`) **no crea competencia en Python ni en análisis**. Un modelo que no repite tokens pero genera texto sin sentido sigue siendo inútil. La configuración anti-loop es necesaria pero no suficiente.
+
+### 7.3. trade-off: diversidad vs. repetición
+
+Valores muy altos de `repetition_penalty` (>= 5.0) o `frequency_penalty` (>= 5.0) eliminan loops pero también reducen la diversidad del texto generado, haciendo que el modelo repita diferentes tokens en lugar del mismo, o se vuelva excesivamente predecible.
+
+### 7.4. No hay configuración mágica
+
+No existe un conjunto de hiperparámetros que convierta un modelo sin entrenamiento en un modelo competente. La edición de pesos y el ajuste de hiperparámetros de generación son ajustes finos sobre un modelo que carece de conocimiento lingüístico estructurado.
+
+---
+
+*Documento generado como parte del experimento AI 800M — No-Trained-AI*
