@@ -38,3 +38,20 @@ Thumbs.db
 
 # Logs
 *.log
+# Variantes IDK50M (demasiado grandes para git, regenerar con scripts/)
+model/idk50m_*.safetensors
+
+# Resultados de experimentos (excepto los que se quieren versionar)
+!ai_experiment/idk50m_variants_evaluation.json
+
+# Venv (no commitear)
+.venv_ai/
+
+# Variantes generadas (demasiado grandes, regenerar con scripts/)
+model/variants/
+
+# Archivos de edición iterativa viejos
+model/anti_loop_analysis.json
+model/iterative_edit_log_fast.json
+model/model_iter.safetensors.part.*
+model/reassemble_iter.sh
